@@ -177,8 +177,12 @@ intptr_t Socket::CreateBindDatagram(const RawAddr& addr,
         __LINE__);
   }
 
-  status = setsockopt(s, IPPROTO_IP, IP_MULTICAST_TTL,
-                      reinterpret_cast<const char*>(&ttl), sizeof(ttl));
+  SocketBase::SetMulticastHops(fd,
+                               addr.addr.sa_family == AF_INET
+                                   ? SocketAddress::TYPE_IPV4
+                                   : SocketAddress::TYPE_IPV6,
+                               ttl);
+
   if (status == SOCKET_ERROR) {
     DWORD rc = WSAGetLastError();
     closesocket(s);

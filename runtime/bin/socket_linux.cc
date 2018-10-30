@@ -116,8 +116,11 @@ intptr_t Socket::CreateBindDatagram(const RawAddr& addr,
 #endif  // SO_REUSEPORT
   }
 
-  VOID_NO_RETRY_EXPECTED(
-      setsockopt(fd, IPPROTO_IP, IP_MULTICAST_TTL, &ttl, sizeof(ttl)));
+  SocketBase::SetMulticastHops(fd,
+                               addr.addr.sa_family == AF_INET
+                                   ? SocketAddress::TYPE_IPV4
+                                   : SocketAddress::TYPE_IPV6,
+                               ttl);
 
   if (NO_RETRY_EXPECTED(
           bind(fd, &addr.addr, SocketAddress::GetAddrLength(addr))) < 0) {
