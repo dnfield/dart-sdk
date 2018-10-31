@@ -177,11 +177,13 @@ intptr_t Socket::CreateBindDatagram(const RawAddr& addr,
         __FILE__, __LINE__);
   }
 
-  SocketBase::SetMulticastHops(s,
-                               addr.addr.sa_family == AF_INET
-                                   ? SocketAddress::TYPE_IPV4
-                                   : SocketAddress::TYPE_IPV6,
-                               ttl);
+  if (!SocketBase::SetMulticastHops(s,
+                                    addr.addr.sa_family == AF_INET
+                                        ? SocketAddress::TYPE_IPV4
+                                        : SocketAddress::TYPE_IPV6,
+                                    ttl)) {
+    status = SOCKET_ERROR;
+  }
 
   if (status == SOCKET_ERROR) {
     DWORD rc = WSAGetLastError();

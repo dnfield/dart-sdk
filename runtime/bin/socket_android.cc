@@ -110,11 +110,14 @@ intptr_t Socket::CreateBindDatagram(const RawAddr& addr,
         __FILE__, __LINE__);
   }
 
-  SocketBase::SetMulticastHops(fd,
-                               addr.addr.sa_family == AF_INET
-                                   ? SocketAddress::TYPE_IPV4
-                                   : SocketAddress::TYPE_IPV6,
-                               ttl);
+  if (!SocketBase::SetMulticastHops(fd,
+                                    addr.addr.sa_family == AF_INET
+                                        ? SocketAddress::TYPE_IPV4
+                                        : SocketAddress::TYPE_IPV6,
+                                    ttl)) {
+    FDUtils::SaveErrorAndClose(fd);
+    return -1;
+  }
 
   if (NO_RETRY_EXPECTED(
           bind(fd, &addr.addr, SocketAddress::GetAddrLength(addr))) < 0) {
