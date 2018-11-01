@@ -182,10 +182,6 @@ intptr_t Socket::CreateBindDatagram(const RawAddr& addr,
                                         ? SocketAddress::TYPE_IPV4
                                         : SocketAddress::TYPE_IPV6,
                                     ttl)) {
-    status = SOCKET_ERROR;
-  }
-
-  if (status == SOCKET_ERROR) {
     DWORD rc = WSAGetLastError();
     closesocket(s);
     SetLastError(rc);
