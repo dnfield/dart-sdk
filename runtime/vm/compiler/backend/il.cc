@@ -1968,9 +1968,13 @@ Definition* DoubleTestOpInstr::Canonicalize(FlowGraph* flow_graph) {
 static bool IsCommutative(Token::Kind op) {
   switch (op) {
     case Token::kMUL:
+      FALL_THROUGH
     case Token::kADD:
+      FALL_THROUGH
     case Token::kBIT_AND:
+      FALL_THROUGH
     case Token::kBIT_OR:
+      FALL_THROUGH
     case Token::kBIT_XOR:
       return true;
     default:
@@ -2152,26 +2156,32 @@ RawInteger* BinaryIntegerOpInstr::Evaluate(const Integer& left,
 
   switch (op_kind()) {
     case Token::kTRUNCDIV:
+      FALL_THROUGH
     case Token::kMOD:
       // Check right value for zero.
       if (right.AsInt64Value() == 0) {
         break;  // Will throw.
       }
-    // Fall through.
+      FALL_THROUGH
     case Token::kADD:
+      FALL_THROUGH
     case Token::kSUB:
+      FALL_THROUGH
     case Token::kMUL: {
       result = left.ArithmeticOp(op_kind(), right, Heap::kOld);
       break;
     }
     case Token::kSHL:
+      FALL_THROUGH
     case Token::kSHR:
       if (right.AsInt64Value() >= 0) {
         result = left.ShiftOp(op_kind(), right, Heap::kOld);
       }
       break;
     case Token::kBIT_AND:
+      FALL_THROUGH
     case Token::kBIT_OR:
+      FALL_THROUGH
     case Token::kBIT_XOR: {
       result = left.BitOp(op_kind(), right, Heap::kOld);
       break;
@@ -2225,12 +2235,13 @@ Definition* CheckedSmiOpInstr::Canonicalize(FlowGraph* flow_graph) {
     // overflow or divide by 0 and can't be specialized unless we have extra
     // range information.
     switch (op_kind()) {
-      case Token::kBIT_AND:
-      case Token::kBIT_OR:
+      case Token::kBIT_AND: FALL_THROUGH
+      case Token::kBIT_OR: FALL_THROUGH
       case Token::kBIT_XOR:
         replacement = new BinarySmiOpInstr(
             op_kind(), new Value(left()->definition()),
             new Value(right()->definition()), DeoptId::kNone);
+             FALL_THROUGH
       default:
         break;
     }
