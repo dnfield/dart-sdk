@@ -5,14 +5,14 @@
 #ifndef RUNTIME_PLATFORM_GLOBALS_H_
 #define RUNTIME_PLATFORM_GLOBALS_H_
 
-#if __cplusplus >= 201703L             // C++17
-#define FALL_THROUGH [[fallthrough]];  // NOLINT
+#if __cplusplus >= 201703L            // C++17
+#define FALL_THROUGH [[fallthrough]]  // NOLINT
 #elif defined(__GNUC__) && __GNUC__ >= 7
 #define FALL_THROUGH __attribute__((fallthrough));
 #elif defined(__clang__)
-#define FALL_THROUGH [[clang::fallthrough]];  // NOLINT
+#define FALL_THROUGH [[clang::fallthrough]]  // NOLINT
 #else
-#define FALL_THROUGH ((void)0);
+#define FALL_THROUGH ((void)0)
 #endif
 
 // __STDC_FORMAT_MACROS has to be defined before including <inttypes.h> to

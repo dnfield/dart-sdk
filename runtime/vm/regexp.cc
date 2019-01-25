@@ -979,7 +979,7 @@ static inline bool EmitAtomLetter(Zone* zone,
     }
     case 4:
       macro_assembler->CheckCharacter(chars[3], &ok);
-      FALL_THROUGH
+      FALL_THROUGH;
     case 3:
       macro_assembler->CheckCharacter(chars[0], &ok);
       macro_assembler->CheckCharacter(chars[1], &ok);
@@ -2248,8 +2248,7 @@ void AssertionNode::BacktrackIfPrevious(
   BlockLabel* non_word = backtrack_if_previous == kIsNonWord
                              ? new_trace.backtrack()
                              : &fall_through;
-  BlockLabel* word = backtrack_if_previous == kIsNonWord
-                         ? &fall_through
+  BlockLabel* word = backtrack_if_previous == kIsNonWord ? &FALL_THROUGH;
                          : new_trace.backtrack();
 
   if (new_trace.cp_offset() == 0) {

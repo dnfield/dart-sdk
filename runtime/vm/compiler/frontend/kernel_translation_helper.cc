@@ -761,55 +761,55 @@ void FunctionNodeHelper::ReadUntilExcluding(Field field) {
       ASSERT(tag == kFunctionNode);
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPosition:
       position_ = helper_->ReadPosition();  // read position.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEndPosition:
       end_position_ = helper_->ReadPosition();  // read end position.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAsyncMarker:
       async_marker_ = static_cast<AsyncMarker>(helper_->ReadByte());
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kDartAsyncMarker:
       dart_async_marker_ = static_cast<AsyncMarker>(
           helper_->ReadByte());  // read dart async marker.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kTypeParameters:
       helper_->SkipTypeParametersList();  // read type parameters.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kTotalParameterCount:
       total_parameter_count_ =
           helper_->ReadUInt();  // read total parameter count.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kRequiredParameterCount:
       required_parameter_count_ =
           helper_->ReadUInt();  // read required parameter count.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPositionalParameters:
       helper_->SkipListOfVariableDeclarations();  // read positionals.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kNamedParameters:
       helper_->SkipListOfVariableDeclarations();  // read named.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kReturnType:
       helper_->SkipDartType();  // read return type.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kBody:
       if (helper_->ReadTag() == kSomething)
         helper_->SkipStatement();  // read body.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -849,35 +849,35 @@ void VariableDeclarationHelper::ReadUntilExcluding(Field field) {
     case kPosition:
       position_ = helper_->ReadPosition();  // read position.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEqualPosition:
       equals_position_ = helper_->ReadPosition();  // read equals position.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations:
       annotation_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < annotation_count_; ++i) {
         helper_->SkipExpression();  // read ith expression.
       }
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags:
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kNameIndex:
       name_index_ = helper_->ReadStringReference();  // read name index.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kType:
       helper_->SkipDartType();  // read type.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kInitializer:
       if (helper_->ReadTag() == kSomething)
         helper_->SkipExpression();  // read initializer.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -901,35 +901,35 @@ void FieldHelper::ReadUntilExcluding(Field field,
       ASSERT(tag == kField);
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCanonicalName:
       canonical_name_ =
           helper_->ReadCanonicalNameReference();  // read canonical_name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSourceUriIndex:
       source_uri_index_ = helper_->ReadUInt();  // read source_uri_index.
       helper_->set_current_script_id(source_uri_index_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPosition:
       position_ = helper_->ReadPosition(false);  // read position.
       helper_->RecordTokenPosition(position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEndPosition:
       end_position_ = helper_->ReadPosition(false);  // read end position.
       helper_->RecordTokenPosition(end_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags:
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kName:
       helper_->SkipName();  // read name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations: {
       annotation_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < annotation_count_; ++i) {
@@ -937,11 +937,11 @@ void FieldHelper::ReadUntilExcluding(Field field,
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kType:
       helper_->SkipDartType();  // read type.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kInitializer:
       if (helper_->ReadTag() == kSomething) {
         if (detect_function_literal_initializer &&
@@ -961,7 +961,7 @@ void FieldHelper::ReadUntilExcluding(Field field,
         helper_->SkipExpression();  // read initializer.
       }
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -977,44 +977,44 @@ void ProcedureHelper::ReadUntilExcluding(Field field) {
       ASSERT(tag == kProcedure);
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCanonicalName:
       canonical_name_ =
           helper_->ReadCanonicalNameReference();  // read canonical_name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSourceUriIndex:
       source_uri_index_ = helper_->ReadUInt();  // read source_uri_index.
       helper_->set_current_script_id(source_uri_index_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kStartPosition:
       start_position_ = helper_->ReadPosition(false);  // read position.
       helper_->RecordTokenPosition(start_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPosition:
       position_ = helper_->ReadPosition(false);  // read position.
       helper_->RecordTokenPosition(position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEndPosition:
       end_position_ = helper_->ReadPosition(false);  // read end position.
       helper_->RecordTokenPosition(end_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kKind:
       kind_ = static_cast<Kind>(helper_->ReadByte());
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags:
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kName:
       helper_->SkipName();  // read name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations: {
       annotation_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < annotation_count_; ++i) {
@@ -1022,21 +1022,21 @@ void ProcedureHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kForwardingStubSuperTarget:
       forwarding_stub_super_target_ = helper_->ReadCanonicalNameReference();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kForwardingStubInterfaceTarget:
       helper_->ReadCanonicalNameReference();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFunction:
       if (helper_->ReadTag() == kSomething) {
         helper_->SkipFunctionNode();  // read function node.
       }
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -1052,40 +1052,40 @@ void ConstructorHelper::ReadUntilExcluding(Field field) {
       ASSERT(tag == kConstructor);
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCanonicalName:
       canonical_name_ =
           helper_->ReadCanonicalNameReference();  // read canonical_name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSourceUriIndex:
       source_uri_index_ = helper_->ReadUInt();  // read source_uri_index.
       helper_->set_current_script_id(source_uri_index_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kStartPosition:
       start_position_ = helper_->ReadPosition();  // read position.
       helper_->RecordTokenPosition(start_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPosition:
       position_ = helper_->ReadPosition();  // read position.
       helper_->RecordTokenPosition(position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEndPosition:
       end_position_ = helper_->ReadPosition();  // read end position.
       helper_->RecordTokenPosition(end_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags:
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kName:
       helper_->SkipName();  // read name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations: {
       annotation_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < annotation_count_; ++i) {
@@ -1093,11 +1093,11 @@ void ConstructorHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFunction:
       helper_->SkipFunctionNode();  // read function.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kInitializers: {
       intptr_t list_length =
           helper_->ReadListLength();  // read initializers list length.
@@ -1106,7 +1106,7 @@ void ConstructorHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -1122,40 +1122,40 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       ASSERT(tag == kClass);
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCanonicalName:
       canonical_name_ =
           helper_->ReadCanonicalNameReference();  // read canonical_name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSourceUriIndex:
       source_uri_index_ = helper_->ReadUInt();  // read source_uri_index.
       helper_->set_current_script_id(source_uri_index_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kStartPosition:
       start_position_ = helper_->ReadPosition(false);  // read position.
       helper_->RecordTokenPosition(start_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kPosition:
       position_ = helper_->ReadPosition(false);  // read position.
       helper_->RecordTokenPosition(position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEndPosition:
       end_position_ = helper_->ReadPosition();  // read end position.
       helper_->RecordTokenPosition(end_position_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags:
       flags_ = helper_->ReadFlags();  // read flags.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kNameIndex:
       name_index_ = helper_->ReadStringReference();  // read name index.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations: {
       annotation_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < annotation_count_; ++i) {
@@ -1163,11 +1163,11 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kTypeParameters:
       helper_->SkipTypeParametersList();  // read type parameters.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSuperClass: {
       Tag type_tag = helper_->ReadTag();  // read super class type (part 1).
       if (type_tag == kSomething) {
@@ -1175,7 +1175,7 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kMixinType: {
       Tag type_tag = helper_->ReadTag();  // read mixin type (part 1).
       if (type_tag == kSomething) {
@@ -1183,11 +1183,11 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kImplementedClasses:
       helper_->SkipListOfDartTypes();  // read implemented_classes.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFields: {
       intptr_t list_length =
           helper_->ReadListLength();  // read fields list length.
@@ -1197,7 +1197,7 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kConstructors: {
       intptr_t list_length =
           helper_->ReadListLength();  // read constructors list length.
@@ -1208,7 +1208,7 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kProcedures: {
       procedure_count_ = helper_->ReadListLength();  // read procedures #.
       for (intptr_t i = 0; i < procedure_count_; i++) {
@@ -1218,7 +1218,7 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kClassIndex:
       // Read class index.
       for (intptr_t i = 0; i < procedure_count_; ++i) {
@@ -1227,7 +1227,7 @@ void ClassHelper::ReadUntilExcluding(Field field) {
       helper_->reader_.ReadUInt32();
       helper_->reader_.ReadUInt32();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -1242,33 +1242,33 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCanonicalName:
       canonical_name_ =
           helper_->ReadCanonicalNameReference();  // read canonical_name.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kName:
       name_index_ = helper_->ReadStringReference();  // read name index.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kSourceUriIndex:
       source_uri_index_ = helper_->ReadUInt();  // read source_uri_index.
       helper_->set_current_script_id(source_uri_index_);
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kProblemsAsJson: {
       intptr_t length = helper_->ReadUInt();  // read length of table.
       for (intptr_t i = 0; i < length; ++i) {
         helper_->SkipBytes(helper_->ReadUInt());  // read strings.
       }
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     }
     case kAnnotations:
       helper_->SkipListOfExpressions();  // read annotations.
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kDependencies: {
       intptr_t dependency_count = helper_->ReadUInt();  // read list length.
       for (intptr_t i = 0; i < dependency_count; ++i) {
@@ -1276,7 +1276,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAdditionalExports: {
       intptr_t name_count = helper_->ReadUInt();
       for (intptr_t i = 0; i < name_count; ++i) {
@@ -1284,7 +1284,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kParts: {
       intptr_t part_count = helper_->ReadUInt();  // read list length.
       for (intptr_t i = 0; i < part_count; ++i) {
@@ -1292,7 +1292,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kTypedefs: {
       intptr_t typedef_count = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < typedef_count; i++) {
@@ -1300,7 +1300,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kClasses: {
       class_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < class_count_; ++i) {
@@ -1309,7 +1309,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kToplevelField: {
       intptr_t field_count = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < field_count; ++i) {
@@ -1318,7 +1318,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kToplevelProcedures: {
       procedure_count_ = helper_->ReadListLength();  // read list length.
       for (intptr_t i = 0; i < procedure_count_; ++i) {
@@ -1327,7 +1327,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kLibraryIndex:
       // Read library index.
       for (intptr_t i = 0; i < class_count_; ++i) {
@@ -1341,7 +1341,7 @@ void LibraryHelper::ReadUntilExcluding(Field field) {
       helper_->reader_.ReadUInt32();
       helper_->reader_.ReadUInt32();
       if (++next_read_ == field) return;
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }
@@ -1356,12 +1356,12 @@ void LibraryDependencyHelper::ReadUntilExcluding(Field field) {
       helper_->ReadPosition();
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kFlags: {
       flags_ = helper_->ReadFlags();
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kAnnotations: {
       annotation_count_ = helper_->ReadListLength();
       for (intptr_t i = 0; i < annotation_count_; ++i) {
@@ -1369,17 +1369,17 @@ void LibraryDependencyHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kTargetLibrary: {
       target_library_canonical_name_ = helper_->ReadCanonicalNameReference();
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kName: {
       name_index_ = helper_->ReadStringReference();
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kCombinators: {
       intptr_t count = helper_->ReadListLength();
       for (intptr_t i = 0; i < count; ++i) {
@@ -1390,7 +1390,7 @@ void LibraryDependencyHelper::ReadUntilExcluding(Field field) {
       }
       if (++next_read_ == field) return;
     }
-      FALL_THROUGH
+      FALL_THROUGH;
     case kEnd:
       return;
   }

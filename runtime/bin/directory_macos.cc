@@ -132,7 +132,7 @@ ListType DirectoryListingEntry::Next(DirectoryListing* listing) {
           return kListLink;
         }
         // Else fall through to next case.
-        FALL_THROUGH
+        FALL_THROUGH;
       case DT_UNKNOWN: {
         // On some file systems the entry type is not determined by
         // readdir_r. For those and for links we use stat to determine
