@@ -436,7 +436,8 @@ int DisassemblerX64::PrintRightOperandHelper(
         return 1;
       }
       break;
-    case 1:  FALL_THROUGH
+    case 1:
+      FALL_THROUGH
     case 2:
       if ((rm & 7) == 4) {
         uint8_t sib = *(modrmp + 1);
@@ -1628,7 +1629,8 @@ int DisassemblerX64::InstructionDecode(uword pc) {
         data += 4;
         break;
 
-      case 0x69:  FALL_THROUGH
+      case 0x69:
+        FALL_THROUGH
       case 0x6B: {
         int mod, regop, rm;
         get_modrm(*(data + 1), &mod, &regop, &rm);
@@ -1641,7 +1643,8 @@ int DisassemblerX64::InstructionDecode(uword pc) {
         break;
       }
 
-      case 0x81:  FALL_THROUGH
+      case 0x81:
+        FALL_THROUGH
       case 0x83:  // 0x81 with sign extension bit set
         data += PrintImmediateOp(data);
         break;
@@ -1806,7 +1809,8 @@ int DisassemblerX64::InstructionDecode(uword pc) {
         data += 2;
         break;
 
-      case 0xA1:  FALL_THROUGH
+      case 0xA1:
+        FALL_THROUGH
       case 0xA3:
         switch (operand_size()) {
           case DOUBLEWORD_SIZE: {
@@ -1862,24 +1866,34 @@ int DisassemblerX64::InstructionDecode(uword pc) {
         }
         break;
       }
-      case 0xD1:  FALL_THROUGH
-      case 0xD3:  FALL_THROUGH
+      case 0xD1:
+        FALL_THROUGH
+      case 0xD3:
+        FALL_THROUGH
       case 0xC1:
         data += ShiftInstruction(data);
         break;
-      case 0xD0:  FALL_THROUGH
-      case 0xD2:  FALL_THROUGH
+      case 0xD0:
+        FALL_THROUGH
+      case 0xD2:
+        FALL_THROUGH
       case 0xC0:
         byte_size_operand_ = true;
         data += ShiftInstruction(data);
         break;
 
-      case 0xD9:  FALL_THROUGH
-      case 0xDA:  FALL_THROUGH
-      case 0xDB:  FALL_THROUGH
-      case 0xDC:  FALL_THROUGH
-      case 0xDD:  FALL_THROUGH
-      case 0xDE:  FALL_THROUGH
+      case 0xD9:
+        FALL_THROUGH
+      case 0xDA:
+        FALL_THROUGH
+      case 0xDB:
+        FALL_THROUGH
+      case 0xDC:
+        FALL_THROUGH
+      case 0xDD:
+        FALL_THROUGH
+      case 0xDE:
+        FALL_THROUGH
       case 0xDF:
         data += FPUInstruction(data);
         break;

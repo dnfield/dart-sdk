@@ -549,13 +549,20 @@ bool AotCallSpecializer::TryOptimizeIntegerOperation(TemplateDartCall<0>* instr,
 #else
         FALL_THROUGH
 #endif
-      case Token::kSHL: FALL_THROUGH
-      case Token::kSHR: FALL_THROUGH
-      case Token::kBIT_OR: FALL_THROUGH
-      case Token::kBIT_XOR: FALL_THROUGH
-      case Token::kBIT_AND: FALL_THROUGH
-      case Token::kADD: FALL_THROUGH
-      case Token::kSUB: FALL_THROUGH
+      case Token::kSHL:
+        FALL_THROUGH
+      case Token::kSHR:
+        FALL_THROUGH
+      case Token::kBIT_OR:
+        FALL_THROUGH
+      case Token::kBIT_XOR:
+        FALL_THROUGH
+      case Token::kBIT_AND:
+        FALL_THROUGH
+      case Token::kADD:
+        FALL_THROUGH
+      case Token::kSUB:
+        FALL_THROUGH
       case Token::kMUL: {
         if (FlowGraphCompiler::SupportsUnboxedInt64()) {
           if (op_kind == Token::kSHR || op_kind == Token::kSHL) {
@@ -647,7 +654,8 @@ bool AotCallSpecializer::TryOptimizeDoubleOperation(TemplateDartCall<0>* instr,
     }
 
     switch (op_kind) {
-      case Token::kEQ: FALL_THROUGH
+      case Token::kEQ:
+        FALL_THROUGH
       case Token::kNE: {
         // TODO(dartbug.com/32166): Support EQ, NE for nullable doubles.
         // (requires null-aware comparison instruction).
@@ -661,9 +669,12 @@ bool AotCallSpecializer::TryOptimizeDoubleOperation(TemplateDartCall<0>* instr,
         }
         break;
       }
-      case Token::kLT: FALL_THROUGH
-      case Token::kLTE: FALL_THROUGH
-      case Token::kGT: FALL_THROUGH
+      case Token::kLT:
+        FALL_THROUGH
+      case Token::kLTE:
+        FALL_THROUGH
+      case Token::kGT:
+        FALL_THROUGH
       case Token::kGTE: {
         left_value = PrepareStaticOpInput(left_value, kDoubleCid, instr);
         right_value = PrepareStaticOpInput(right_value, kDoubleCid, instr);
@@ -672,9 +683,12 @@ bool AotCallSpecializer::TryOptimizeDoubleOperation(TemplateDartCall<0>* instr,
             DeoptId::kNone, Instruction::kNotSpeculative);
         break;
       }
-      case Token::kADD: FALL_THROUGH
-      case Token::kSUB: FALL_THROUGH
-      case Token::kMUL: FALL_THROUGH
+      case Token::kADD:
+        FALL_THROUGH
+      case Token::kSUB:
+        FALL_THROUGH
+      case Token::kMUL:
+        FALL_THROUGH
       case Token::kDIV: {
         if (op_kind == Token::kDIV &&
             !FlowGraphCompiler::SupportsHardwareDivision()) {
@@ -688,11 +702,16 @@ bool AotCallSpecializer::TryOptimizeDoubleOperation(TemplateDartCall<0>* instr,
         break;
       }
 
-      case Token::kBIT_OR: FALL_THROUGH
-      case Token::kBIT_XOR: FALL_THROUGH
-      case Token::kBIT_AND: FALL_THROUGH
-      case Token::kMOD: FALL_THROUGH
-      case Token::kTRUNCDIV: FALL_THROUGH
+      case Token::kBIT_OR:
+        FALL_THROUGH
+      case Token::kBIT_XOR:
+        FALL_THROUGH
+      case Token::kBIT_AND:
+        FALL_THROUGH
+      case Token::kMOD:
+        FALL_THROUGH
+      case Token::kTRUNCDIV:
+        FALL_THROUGH
       default:
         break;
     }

@@ -2572,7 +2572,8 @@ static bool InlineSetIndexed(FlowGraph* flow_graph,
       case kTypedDataUint64ArrayCid:
         ASSERT(value_type.IsIntType());
         FALL_THROUGH
-      case kTypedDataFloat32ArrayCid: FALL_THROUGH
+      case kTypedDataFloat32ArrayCid:
+        FALL_THROUGH
       case kTypedDataFloat64ArrayCid: {
         type_args = flow_graph->constant_null();
         ASSERT((array_cid != kTypedDataFloat32ArrayCid &&

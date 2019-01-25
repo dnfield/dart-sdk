@@ -518,12 +518,14 @@ static bool IntrinsifyArrayGetIndexed(FlowGraph* flow_graph,
       array_cid, kAlignedAccess, DeoptId::kNone, builder.TokenPos()));
   // Box and/or convert result if necessary.
   switch (array_cid) {
-    case kTypedDataInt32ArrayCid: FALL_THROUGH
+    case kTypedDataInt32ArrayCid:
+      FALL_THROUGH
     case kExternalTypedDataInt32ArrayCid:
       result = builder.AddDefinition(
           BoxInstr::Create(kUnboxedInt32, new Value(result)));
       break;
-    case kTypedDataUint32ArrayCid: FALL_THROUGH
+    case kTypedDataUint32ArrayCid:
+      FALL_THROUGH
     case kExternalTypedDataUint32ArrayCid:
       result = builder.AddDefinition(
           BoxInstr::Create(kUnboxedUint32, new Value(result)));
@@ -531,7 +533,7 @@ static bool IntrinsifyArrayGetIndexed(FlowGraph* flow_graph,
     case kTypedDataFloat32ArrayCid:
       result = builder.AddDefinition(
           new FloatToDoubleInstr(new Value(result), DeoptId::kNone));
-    FALL_THROUGH
+      FALL_THROUGH
     case kTypedDataFloat64ArrayCid:
       result = builder.AddDefinition(
           BoxInstr::Create(kUnboxedDouble, new Value(result)));
@@ -548,18 +550,27 @@ static bool IntrinsifyArrayGetIndexed(FlowGraph* flow_graph,
       result = builder.AddDefinition(
           BoxInstr::Create(kUnboxedFloat64x2, new Value(result)));
       break;
-    case kArrayCid: FALL_THROUGH
-    case kImmutableArrayCid: FALL_THROUGH
-    case kTypedDataInt8ArrayCid: FALL_THROUGH
-    case kTypedDataUint8ArrayCid: FALL_THROUGH
-    case kExternalTypedDataUint8ArrayCid: FALL_THROUGH
-    case kTypedDataUint8ClampedArrayCid: FALL_THROUGH
-    case kExternalTypedDataUint8ClampedArrayCid: FALL_THROUGH
-    case kTypedDataInt16ArrayCid: FALL_THROUGH
+    case kArrayCid:
+      FALL_THROUGH
+    case kImmutableArrayCid:
+      FALL_THROUGH
+    case kTypedDataInt8ArrayCid:
+      FALL_THROUGH
+    case kTypedDataUint8ArrayCid:
+      FALL_THROUGH
+    case kExternalTypedDataUint8ArrayCid:
+      FALL_THROUGH
+    case kTypedDataUint8ClampedArrayCid:
+      FALL_THROUGH
+    case kExternalTypedDataUint8ClampedArrayCid:
+      FALL_THROUGH
+    case kTypedDataInt16ArrayCid:
+      FALL_THROUGH
     case kTypedDataUint16ArrayCid:
       // Nothing to do.
       break;
-    case kTypedDataInt64ArrayCid: FALL_THROUGH
+    case kTypedDataInt64ArrayCid:
+      FALL_THROUGH
     case kTypedDataUint64ArrayCid:
       result = builder.AddDefinition(
           BoxInstr::Create(kUnboxedInt64, new Value(result)));

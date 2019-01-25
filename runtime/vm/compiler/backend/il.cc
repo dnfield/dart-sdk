@@ -2235,13 +2235,15 @@ Definition* CheckedSmiOpInstr::Canonicalize(FlowGraph* flow_graph) {
     // overflow or divide by 0 and can't be specialized unless we have extra
     // range information.
     switch (op_kind()) {
-      case Token::kBIT_AND: FALL_THROUGH
-      case Token::kBIT_OR: FALL_THROUGH
+      case Token::kBIT_AND:
+        FALL_THROUGH
+      case Token::kBIT_OR:
+        FALL_THROUGH
       case Token::kBIT_XOR:
         replacement = new BinarySmiOpInstr(
             op_kind(), new Value(left()->definition()),
             new Value(right()->definition()), DeoptId::kNone);
-             FALL_THROUGH
+        FALL_THROUGH
       default:
         break;
     }

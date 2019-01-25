@@ -5,7 +5,7 @@
 #ifndef RUNTIME_PLATFORM_GLOBALS_H_
 #define RUNTIME_PLATFORM_GLOBALS_H_
 
-#if __cplusplus >= 201703L            // C++17
+#if __cplusplus >= 201703L             // C++17
 #define FALL_THROUGH [[fallthrough]];  // NOLINT
 #elif defined(__GNUC__) && __GNUC__ >= 7
 #define FALL_THROUGH __attribute__((fallthrough));
