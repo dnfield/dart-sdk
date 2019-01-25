@@ -1999,7 +1999,7 @@ FlowGraph* StreamingFlowGraphBuilder::BuildGraph() {
         return BuildGraphOfImplicitClosureFunction(function);
       }
     }
-    DART_FALL_THROUGH
+      FALL_THROUGH
     case RawFunction::kClosureFunction: {
       ReadUntilFunctionNode();
       return BuildGraphOfFunction(false);
