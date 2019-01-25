@@ -79,15 +79,11 @@ uint32_t Utils::StringHash(const char* data, int length) {
     case 3:
       hash ^= cursor[2] << 16;
       /* Falls through. */
-#ifdef __clang__
-      [[clang::fallthrough]];
-#endif
+      DART_FALL_THROUGH
     case 2:
       hash ^= cursor[1] << 8;
       /* Falls through. */
-#ifdef __clang__
-      [[clang::fallthrough]];
-#endif
+      DART_FALL_THROUGH
     case 1:
       hash ^= cursor[0];
       hash *= M;
