@@ -143,7 +143,6 @@ ListType DirectoryListingEntry::Next(DirectoryListing* listing) {
           return kListLink;
         }
         // Else fall through to next case.
-        // Fall through.
         DART_FALL_THROUGH
       case DT_UNKNOWN: {
         // On some file systems the entry type is not determined by

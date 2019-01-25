@@ -558,7 +558,7 @@ RegExpTree* RegExpParser::ParseDisjunction() {
           UNREACHABLE();
         }
       }
-      /* Falls through */
+      DART_FALL_THROUGH
       default:
         builder->AddCharacter(current());
         Advance();
