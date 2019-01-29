@@ -2248,7 +2248,8 @@ void AssertionNode::BacktrackIfPrevious(
   BlockLabel* non_word = backtrack_if_previous == kIsNonWord
                              ? new_trace.backtrack()
                              : &fall_through;
-  BlockLabel* word = backtrack_if_previous == kIsNonWord ? &FALL_THROUGH;
+  BlockLabel* word = backtrack_if_previous == kIsNonWord
+                         ? &fall_through
                          : new_trace.backtrack();
 
   if (new_trace.cp_offset() == 0) {

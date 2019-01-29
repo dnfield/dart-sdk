@@ -61,7 +61,7 @@ intptr_t TimelineEventSystraceRecorder::PrintSystrace(TimelineEvent* event,
         length = Utils::SNPrint(buffer, buffer_size, "C|%" Pd64 "|%s|%s", pid,
                                 event->label(), event->arguments()[0].value);
       }
-    }
+    } break;
     default:
       // Ignore event types that we cannot serialize to the Systrace format.
       break;
