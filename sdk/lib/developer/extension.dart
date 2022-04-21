@@ -141,9 +141,25 @@ void registerExtension(String method, ServiceExtensionHandler handler) {
   _registerExtension(method, handler);
 }
 
+/// Returns true if the `Extension` stream is enabled.
+///
+/// This stream is only enabled if some client of the VM service registers as a
+/// listener. If it is not enabled, calls to [postEvent] are no-ops. If it is
+/// enabled, calls to [postEvent] will be sent to listeners on the stream.
+///
+/// Posting an event does not guarantee that a listener will receive it. Even
+/// if the stream is enabled, registered clients may disconnect before
+/// processing the message.
+external bool isExtensionStreamEnabled();
+
 /// Post an event of [eventKind] with payload of [eventData] to the `Extension`
 /// event stream.
+///
+/// If [isExtensionStreamEnabled] returns false, this method is a no-op.
 void postEvent(String eventKind, Map eventData) {
+  if (!isExtensionStreamEnabled()) {
+    return;
+  }
   // TODO: When NNBD is complete, delete the following two lines.
   ArgumentError.checkNotNull(eventKind, 'eventKind');
   ArgumentError.checkNotNull(eventData, 'eventData');

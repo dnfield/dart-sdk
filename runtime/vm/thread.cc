@@ -19,6 +19,7 @@
 #include "vm/os_thread.h"
 #include "vm/profiler.h"
 #include "vm/runtime_entry.h"
+#include "vm/service.h"
 #include "vm/stub_code.h"
 #include "vm/symbols.h"
 #include "vm/thread_interrupter.h"
@@ -92,6 +93,7 @@ Thread::Thread(bool is_vm_isolate)
       tsan_utils_(DO_IF_TSAN(new TsanUtils()) DO_IF_NOT_TSAN(nullptr)),
       task_kind_(kUnknownTask),
       dart_stream_(NULL),
+      extension_stream_(NULL),
       thread_lock_(),
       api_reusable_scope_(NULL),
       no_callback_scope_depth_(0),
@@ -112,6 +114,10 @@ Thread::Thread(bool is_vm_isolate)
 #if defined(SUPPORT_TIMELINE)
   dart_stream_ = Timeline::GetDartStream();
   ASSERT(dart_stream_ != NULL);
+#endif
+#ifndef PRODUCT
+  extension_stream_ = &Service::extension_stream;
+  ASSERT(extension_stream_ != NULL);
 #endif
 #define DEFAULT_INIT(type_name, member_name, init_expr, default_init_value)    \
   member_name = default_init_value;

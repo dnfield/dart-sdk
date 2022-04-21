@@ -27,6 +27,11 @@ void log(String message,
     StackTrace? stackTrace}) {}
 
 @patch
+bool isExtensionStreamEnabled() {
+  return false;
+}
+
+@patch
 void _postEvent(String eventKind, String eventData) {}
 
 @patch

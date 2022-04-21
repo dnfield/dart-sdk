@@ -418,6 +418,8 @@ namespace dart {
   V(::, _getDefaultTag, UserTag_defaultTag, 0x6c19c8a5)                        \
   V(::, _getCurrentTag, Profiler_getCurrentTag, 0x70ead08e)                    \
   V(::, _isDartStreamEnabled, Timeline_isDartStreamEnabled, 0xc97aafb3)        \
+  V(::, isExtensionStreamEnabled, Developer_isExtensionStreamEnabled,          \
+    0xc97aafb3)                                                                \
 
 #define INTERNAL_LIB_INTRINSIC_LIST(V)                                         \
   V(::, allocateOneByteString, AllocateOneByteString, 0x9e7745d5)              \

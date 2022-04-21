@@ -4077,6 +4077,13 @@ Fragment FlowGraphBuilder::LoadIsolate() {
   return body;
 }
 
+Fragment FlowGraphBuilder::LoadExtensionStream() {
+  Fragment body;
+  body += LoadThread();
+  // body += LoadUntagged(compiler::target::Thread::extension_stream_offset());
+  return body;
+}
+
 // TODO(http://dartbug.com/47487): Support unboxed output value.
 Fragment FlowGraphBuilder::BoolToInt() {
   // TODO(http://dartbug.com/36855) Build IfThenElseInstr, instead of letting
