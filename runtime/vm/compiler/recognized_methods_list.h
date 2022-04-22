@@ -268,7 +268,7 @@ namespace dart {
   V(_RootZone, runUnary, RootZoneRunUnary, 0xb607f8bf)                         \
   V(_FutureListener, handleValue, FutureListenerHandleValue, 0x438115a8)       \
   V(::, has63BitSmis, Has63BitSmis, 0xf61b56f1)                                \
-  V(::, get:isExtensionStreamEnabled, IsExtensionStreamEnabled, 0)    \
+  V(::, get:isExtensionStreamEnabled, IsExtensionStreamEnabled, 0xe738245f)    \
 
 // List of intrinsics:
 // (class-name, function-name, intrinsification method, fingerprint).

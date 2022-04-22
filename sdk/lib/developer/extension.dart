@@ -151,6 +151,7 @@ void registerExtension(String method, ServiceExtensionHandler handler) {
 /// if the stream is enabled, registered clients may disconnect before
 /// processing the message.
 @pragma("vm:recognized", "other")
+@pragma("vm:prefer-inline")
 external bool get isExtensionStreamEnabled;
 
 /// Post an event of [eventKind] with payload of [eventData] to the `Extension`
