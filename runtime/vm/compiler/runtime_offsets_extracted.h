@@ -240,6 +240,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -834,6 +835,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -1431,6 +1433,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -2022,6 +2025,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -2621,6 +2625,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -3219,6 +3224,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -3817,6 +3823,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -4413,6 +4420,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -5007,6 +5015,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -5595,6 +5604,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -6186,6 +6196,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -6771,6 +6782,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -7364,6 +7376,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -7956,6 +7969,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -8548,6 +8562,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     8;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 4;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word String_hash_offset = 8;
 static constexpr dart::compiler::target::word String_length_offset = 4;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 4;
@@ -9138,6 +9153,7 @@ static constexpr dart::compiler::target::word
 static constexpr dart::compiler::target::word StoreBufferBlock_pointers_offset =
     16;
 static constexpr dart::compiler::target::word StoreBufferBlock_top_offset = 8;
+static constexpr dart::compiler::target::word StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word String_hash_offset = 4;
 static constexpr dart::compiler::target::word String_length_offset = 8;
 static constexpr dart::compiler::target::word SubtypeTestCache_cache_offset = 8;
@@ -9767,6 +9783,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 8;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     4;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 4;
 static constexpr dart::compiler::target::word
@@ -10435,6 +10452,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -11109,6 +11127,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -11780,6 +11799,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -12450,6 +12470,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -13121,6 +13142,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 8;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     4;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 4;
 static constexpr dart::compiler::target::word
@@ -13791,6 +13813,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -14457,6 +14480,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 8;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     4;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 4;
 static constexpr dart::compiler::target::word
@@ -15118,6 +15142,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -15785,6 +15810,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -16449,6 +16475,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -17112,6 +17139,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
@@ -17776,6 +17804,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 8;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     4;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 4;
 static constexpr dart::compiler::target::word
@@ -18439,6 +18468,7 @@ static constexpr dart::compiler::target::word
     AOT_StoreBufferBlock_pointers_offset = 16;
 static constexpr dart::compiler::target::word AOT_StoreBufferBlock_top_offset =
     8;
+static constexpr dart::compiler::target::word AOT_StreamInfo_enabled_offset = 8;
 static constexpr dart::compiler::target::word AOT_String_hash_offset = 4;
 static constexpr dart::compiler::target::word AOT_String_length_offset = 8;
 static constexpr dart::compiler::target::word
