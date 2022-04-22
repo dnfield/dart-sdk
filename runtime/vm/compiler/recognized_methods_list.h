@@ -268,6 +268,7 @@ namespace dart {
   V(_RootZone, runUnary, RootZoneRunUnary, 0xb607f8bf)                         \
   V(_FutureListener, handleValue, FutureListenerHandleValue, 0x438115a8)       \
   V(::, has63BitSmis, Has63BitSmis, 0xf61b56f1)                                \
+  V(::, get:isExtensionStreamEnabled, IsExtensionStreamEnabled, 0)    \
 
 // List of intrinsics:
 // (class-name, function-name, intrinsification method, fingerprint).
@@ -418,8 +419,6 @@ namespace dart {
   V(::, _getDefaultTag, UserTag_defaultTag, 0x6c19c8a5)                        \
   V(::, _getCurrentTag, Profiler_getCurrentTag, 0x70ead08e)                    \
   V(::, _isDartStreamEnabled, Timeline_isDartStreamEnabled, 0xc97aafb3)        \
-  V(::, isExtensionStreamEnabled, Developer_isExtensionStreamEnabled,          \
-    0xc97aafb3)                                                                \
 
 #define INTERNAL_LIB_INTRINSIC_LIST(V)                                         \
   V(::, allocateOneByteString, AllocateOneByteString, 0x9e7745d5)              \

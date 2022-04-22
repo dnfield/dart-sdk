@@ -952,6 +952,7 @@ bool FlowGraphBuilder::IsRecognizedMethodForFlowGraph(
     case MethodRecognizer::kReachabilityFence:
     case MethodRecognizer::kUtf8DecoderScan:
     case MethodRecognizer::kHas63BitSmis:
+    case MethodRecognizer::kIsExtensionStreamEnabled:
 #define CASE(method, slot) case MethodRecognizer::k##method:
       LOAD_NATIVE_FIELD(CASE)
       STORE_NATIVE_FIELD(CASE)
@@ -1488,6 +1489,13 @@ FlowGraph* FlowGraphBuilder::BuildGraphOfRecognizedMethod(
 #else
       body += Constant(Bool::False());
 #endif  // defined(ARCH_IS_64_BIT)
+    } break;
+    case MethodRecognizer::kIsExtensionStreamEnabled: {
+#ifdef PRODUCT
+      body += Constant(Bool::False());
+#else
+      body += Constant(Bool::True());
+#endif // PRODUCT
     } break;
     case MethodRecognizer::kFfiAsExternalTypedDataInt8:
     case MethodRecognizer::kFfiAsExternalTypedDataInt16:
@@ -4080,7 +4088,7 @@ Fragment FlowGraphBuilder::LoadIsolate() {
 Fragment FlowGraphBuilder::LoadExtensionStream() {
   Fragment body;
   body += LoadThread();
-  // body += LoadUntagged(compiler::target::Thread::extension_stream_offset());
+  body += LoadUntagged(compiler::target::Thread::extension_stream_offset());
   return body;
 }
 

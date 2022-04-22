@@ -150,14 +150,15 @@ void registerExtension(String method, ServiceExtensionHandler handler) {
 /// Posting an event does not guarantee that a listener will receive it. Even
 /// if the stream is enabled, registered clients may disconnect before
 /// processing the message.
-external bool isExtensionStreamEnabled();
+@pragma("vm:recognized", "other")
+external bool get isExtensionStreamEnabled;
 
 /// Post an event of [eventKind] with payload of [eventData] to the `Extension`
 /// event stream.
 ///
 /// If [isExtensionStreamEnabled] returns false, this method is a no-op.
 void postEvent(String eventKind, Map eventData) {
-  if (!isExtensionStreamEnabled()) {
+  if (!isExtensionStreamEnabled) {
     return;
   }
   // TODO: When NNBD is complete, delete the following two lines.
