@@ -81,6 +81,8 @@ class StreamInfo {
   }
   bool include_private_members() const { return include_private_members_; }
 
+  static intptr_t enabled_offset() { return OFFSET_OF(StreamInfo, enabled_); }
+
  private:
   const char* id_;
   bool enabled_;

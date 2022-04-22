@@ -1494,7 +1494,10 @@ FlowGraph* FlowGraphBuilder::BuildGraphOfRecognizedMethod(
 #ifdef PRODUCT
       body += Constant(Bool::False());
 #else
-      body += Constant(Bool::True());
+      body += LoadExtensionStream();
+      body += LoadUntagged(compiler::target::StreamInfo::enabled_offset());
+
+      // body += Constant(Bool::False());
 #endif // PRODUCT
     } break;
     case MethodRecognizer::kFfiAsExternalTypedDataInt8:

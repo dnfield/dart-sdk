@@ -186,6 +186,7 @@
   FIELD(SingleTargetCache, upper_limit_offset)                                 \
   FIELD(StoreBufferBlock, pointers_offset)                                     \
   FIELD(StoreBufferBlock, top_offset)                                          \
+  FIELD(StreamInfo, enabled_offset)                                            \
   FIELD(String, hash_offset)                                                   \
   FIELD(String, length_offset)                                                 \
   FIELD(SubtypeTestCache, cache_offset)                                        \
